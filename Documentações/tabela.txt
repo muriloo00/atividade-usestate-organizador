@@ -1,0 +1,26 @@
+CREATE TABLE produtos (
+  id INT PRIMARY KEY,
+  nome VARCHAR(100),
+  categoria VARCHAR(50),
+  preco DECIMAL(10,2),
+  quantidade INT,
+  marca VARCHAR(50)
+);
+
+INSERT INTO produtos VALUES
+(1,'Teclado','Periféricos',249.90,15,'Redragon'),
+(2,'Mouse','Periféricos',129.50,20,'Logitech'),
+(3,'Monitor','Monitores',899.00,8,'LG'),
+(4,'Headset','Áudio',189.90,12,'JBL'),
+(5,'Notebook','Computadores',3499.00,5,'Dell'),
+(6,'Cabo HDMI','Cabos',39.90,30,'Generic'),
+(7,'Webcam','Periféricos',159.00,10,'Logitech'),
+(8,'SSD 1TB','Armazenamento',449.90,7,'Samsung');
+
+SELECT * FROM produtos;
+SELECT nome, preco FROM produtos;
+SELECT * FROM produtos WHERE preco > 100;
+SELECT * FROM produtos WHERE quantidade > 5;
+SELECT * FROM produtos WHERE categoria = 'Periféricos';
+SELECT * FROM produtos ORDER BY nome;
+SELECT * FROM produtos ORDER BY preco DESC;

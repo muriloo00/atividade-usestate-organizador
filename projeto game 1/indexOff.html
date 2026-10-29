@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ping Pong</title>
+    <link rel="stylesheet" href="style.css?v=pingpong-1" />
+  </head>
+  <body>
+    <div class="game-shell">
+      <header class="topbar">
+        <div>
+          <p class="label">ARCADE</p>
+          <h1>PING PONG</h1>
+        </div>
+        <button id="startButton" type="button">JOGAR</button>
+      </header>
+
+      <div class="hud">
+        <span>JOGADOR: <strong id="playerScore">0</strong></span>
+        <span>PC: <strong id="cpuScore">0</strong></span>
+        <span>FASE: <strong id="levelValue">1</strong></span>
+        <span>VEL.: <strong id="speedValue">1.0x</strong></span>
+        <div class="stamina-wrap">
+          <div class="stamina-label">
+            <span>STAMINA</span>
+            <strong id="staminaValue">100%</strong>
+          </div>
+          <div class="stamina-bar" aria-label="Stamina do dash">
+            <div id="staminaFill"></div>
+          </div>
+          <small id="dashStatus">PRONTO</small>
+        </div>
+      </div>
+
+      <canvas id="gameCanvas" width="960" height="540"></canvas>
+
+      <div id="message" class="message">
+        Use as setas para mover a raquete e devolver a bola.
+      </div>
+    </div>
+
+    <script src="script.js?v=pingpong-1" defer></script>
+  </body>
+</html>

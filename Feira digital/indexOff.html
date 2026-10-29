@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trocas da Turma</title>
+  </head>
+  <body>
+    <header>
+      <h1>Portal de Trocas</h1>
+    </header>
+    <form id="formulario">
+      <label for="Nome do responsavel">Nome do responsável:</label>
+      <input
+        type="text"
+        id="Nome do responsavel"
+        name="Nome do responsavel"
+        required
+      />
+
+      <label for="Nome do item">Nome do item:</label>
+      <input type="text" id="Nome do item" name="Nome do item" required />
+
+      <label for="categoria do item">Categoria do item:</label>
+      <select id="categoria do item" name="categoria do item">
+        <option value="">Selecione a categoria do item</option>
+        <option value="categoria1">Categoria 1</option>
+        <option value="categoria2">Categoria 2</option>
+        <option value="categoria3">Categoria 3</option>
+      </select>
+      <label for="estado de conservação">Estado de conservação:</label>
+      <select id="estado de conservação" name="estado de conservação">
+        <option value="">Selecione o estado de conservação</option>
+        <option value="novo">Novo</option>
+        <option value="usado">Usado</option>
+        <option value="danificado">Danificado</option>
+      </select>
+      <label for="disponibilidade para troca"
+        >Disponibilidade para troca:</label
+      >
+      <select id="disponibilidade para troca" name="disponibilidade para troca">
+        <option value="">Selecione a disponibilidade para troca</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+      </select>
+
+      <label for="descricao do item">Descrição do item:</label>
+      <textarea
+        id="descricao do item"
+        name="descricao do item"
+        placeholder="Descreva o item"
+      ></textarea>
+
+      <button id="enviar" type="submit">Enviar</button>
+      <p id="mensagem-sucesso" class="mensagem-sucesso escondida">
+        Item enviado com sucesso!
+      </p>
+    </form>
+
+    <div id="resumo">
+      <h1>Resumo das trocas</h1>
+      <h3 id="total">Total:</h3>
+      <h3 id="disponiveis">Disponíveis:</h3>
+      <h3 id="reservados">Reservados:</h3>
+      <h3 id="trocados">Trocados:</h3>
+
+      <label for="filtro-categoria">Filtrar por categoria:</label>
+      <select id="filtro-categoria" name="filtro-categoria">
+        <option value="">Todas as categorias</option>
+        <option value="categoria1">Categoria 1</option>
+        <option value="categoria2">Categoria 2</option>
+        <option value="categoria3">Categoria 3</option>
+      </select>
+
+      <div class="cartao-itens">
+        <p class="titulo-cartao">Itens disponíveis</p>
+        <ul id="lista-resumo"></ul>
+      </div>
+    </div>
+    
+    <script src="script.js"></script>
+  </body>
+</html>

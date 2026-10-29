@@ -1,0 +1,40 @@
+:root {
+  --paper: #111315;
+  --panel: #191c1f;
+  --ink: #f1f3f3;
+  --muted: #a5a7a4;
+  --border: #34383a;
+  --accent: #c8ced0;
+  --display: "Avenir Next", "Trebuchet MS", sans-serif;
+  --sans: "Avenir Next", "Trebuchet MS", sans-serif;
+  --mono: "Courier New", monospace;
+  font: 16px/1.5 var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background:
+    radial-gradient(circle at 85% 8%, rgba(200, 206, 208, 0.1), transparent 24rem),
+    radial-gradient(circle at 10% 80%, rgba(44, 74, 79, 0.18), transparent 28rem),
+    var(--paper);
+}
+
+a {
+  transition: color 180ms ease;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}

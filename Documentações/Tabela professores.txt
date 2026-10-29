@@ -1,0 +1,15 @@
+CREATE TABLE professores (
+  cpf VARCHAR(100),
+
+  nome VARCHAR(100),
+
+  especialidade VARCHAR(50),
+
+  salario NUMERIC (12,2),
+  
+  data_ademissao DATE
+);
+
+INSERT INTO professores VALUES('057.846.570-11', 'murilo','portugues',3000, '2025-05-01');
+
+SELECT * FROM professores;

@@ -1,0 +1,228 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --panel: rgba(15, 23, 42, 0.9);
+  --panel-border: rgba(148, 163, 184, 0.4);
+  --yellow: #facc15;
+  --cyan: #7dd3fc;
+  --blue: #2563eb;
+  --green: #34d399;
+  --white: #f8fafc;
+  --muted: #dbeafe;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(180deg, #0f172a 0%, #1d4ed8 100%);
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.game-shell {
+  width: min(1000px, 92vw);
+  padding: 14px 20px 26px;
+  background: var(--panel);
+  border: 2px solid var(--panel-border);
+  border-radius: 18px;
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.28), inset 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.topbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 84px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: linear-gradient(110deg, rgba(59, 130, 246, 0.9), rgba(14, 165, 233, 0.88) 52%, rgba(30, 64, 175, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.topbar::after {
+  content: "";
+  position: absolute;
+  right: 12%;
+  top: -28px;
+  width: 180px;
+  height: 180px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.label {
+  margin: 0 0 6px;
+  color: #e0f2fe;
+  letter-spacing: 0.22em;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: clamp(30px, 4vw, 46px);
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  text-shadow: 3px 3px 0 rgba(15, 23, 42, 0.9), 0 0 18px rgba(125, 211, 252, 0.5);
+}
+
+#startButton {
+  position: relative;
+  z-index: 1;
+  border: none;
+  border-radius: 10px;
+  padding: 13px 22px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  color: #0f172a;
+  background: linear-gradient(135deg, #fef08a, #facc15 60%, #f59e0b);
+  box-shadow: 0 0 18px rgba(250, 204, 21, 0.35), inset 0 1px rgba(255, 255, 255, 0.5);
+  transition: transform 0.15s ease;
+}
+
+#startButton:hover {
+  transform: translateY(-2px);
+}
+
+.hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 8px 0 14px;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+}
+
+#playerScore {
+  color: #fde68a;
+}
+
+#cpuScore {
+  color: #bfdbfe;
+}
+
+#levelValue {
+  color: #f0abfc;
+}
+
+#speedValue {
+  color: #a7f3d0;
+}
+
+.stamina-wrap {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 190px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: #dbeafe;
+}
+
+.stamina-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+#staminaValue,
+#dashStatus {
+  color: #86efac;
+}
+
+#dashStatus {
+  min-height: 12px;
+  font-size: 9px;
+  text-align: right;
+  letter-spacing: 0.1em;
+}
+
+.stamina-bar {
+  width: 150px;
+  height: 12px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  box-shadow: inset 0 0 10px rgba(59, 130, 246, 0.15);
+}
+
+#staminaFill {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #22c55e, #84cc16, #facc15);
+  box-shadow: 0 0 10px rgba(132, 204, 22, 0.7);
+  transition: width 0.12s linear, filter 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
+}
+
+.stamina-wrap.low #staminaFill {
+  background: #f97316;
+  box-shadow: 0 0 12px rgba(249, 115, 22, 0.8);
+}
+
+.stamina-wrap.cooldown #staminaFill {
+  background: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.85);
+  animation: stamina-pulse 0.8s ease-in-out infinite alternate;
+}
+
+.stamina-wrap.active #staminaFill {
+  background: #fef08a;
+  box-shadow: 0 0 16px rgba(254, 240, 138, 1);
+}
+
+@keyframes stamina-pulse {
+  from { opacity: 0.65; }
+  to { opacity: 1; }
+}
+
+#message {
+  margin-top: 14px;
+  min-height: 24px;
+  text-align: center;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 0 28px rgba(14, 116, 144, 0.15);
+}
+
+@media (max-width: 600px) {
+  .game-shell {
+    width: 94vw;
+    padding: 14px 12px 18px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hud {
+    font-size: 14px;
+  }
+}

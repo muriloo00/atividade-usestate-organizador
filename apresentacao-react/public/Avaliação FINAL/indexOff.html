@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organiza+</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="formulario">
+        <h1>Organiza+</h1>
+        <label for="tarefa">Tarefa:</label>
+        <input type="text" id="tarefa" name="tarefa" required>
+        <button type="submit">Cadastrar tarefa</button>
+        <p id="mensagem" role="status" aria-live="polite"></p>
+    </form>
+
+    <section aria-labelledby="lista-titulo">
+        <h2 id="lista-titulo">Minhas tarefas</h2>
+        <div class="resumo-tarefas" aria-label="Resumo das tarefas">
+            <div class="indicador-tarefa">
+                <strong id="quantidade-total">0</strong>
+                <span>Total</span>
+            </div>
+            <div class="indicador-tarefa feitas">
+                <strong id="quantidade-feitas">0</strong>
+                <span>Concluídas</span>
+            </div>
+            <div class="indicador-tarefa pendentes">
+                <strong id="quantidade-pendentes">0</strong>
+                <span>Pendentes</span>
+            </div>
+        </div>
+        <button type="button" id="botao-limpar-concluidas" disabled>
+            Limpar tarefas concluídas
+        </button>
+        <ul id="lista-tarefas"></ul>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
